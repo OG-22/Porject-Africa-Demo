@@ -2,8 +2,11 @@ const { Storage } = require('@google-cloud/storage');
 const path = require('path');
 
 const storage = new Storage({
-  keyFilename: path.join(__dirname, 'service-account.json'),
-  projectId: 'media-emporium-462711',
+  projectId: process.env.GCP_PROJECT_ID,
+  credentials: {
+    client_email: process.env.GCP_CLIENT_EMAIL,
+    private_key: process.env.GCP_PRIVATE_KEY.replace(/\\n/g, '\n'),
+  },
 });
 
 const buckets = {
