@@ -4,7 +4,6 @@ const passport = require('passport');
 const path = require('path');
 const multer = require('multer');
 const fs = require('fs');
-require('dotenv').config();
 require('./auth');
 const pool = require('./db');
 
