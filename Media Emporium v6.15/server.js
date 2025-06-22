@@ -12,7 +12,7 @@ function isLoggedIn(req, res, next) {
 }
 
 const app = express();
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8080;
 app.use(session({
   secret: process.env.SECRET,
   resave: false,
