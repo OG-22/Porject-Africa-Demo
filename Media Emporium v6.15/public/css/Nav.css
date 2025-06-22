@@ -1,0 +1,75 @@
+  #Sidenav {
+    position: fixed;
+    background-color: #111;
+    top: 60px;
+    left: 0;
+    width: 20%;
+    height: calc(100vh - 60px);
+    font-family: Arial, sans-serif;
+  }
+
+  #searchBar {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    background-color: #333;
+    border-color: #333;
+    color: aliceblue;
+    gap: 10px;
+  }
+  
+  .button-container {
+    height: 68%;
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    justify-content: left;
+    align-items: left;
+  }
+  
+  .button {
+    background-color: transparent;
+    color: silver;
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 25px;
+    height: calc(68vh / 4);
+    display: flex;
+    flex-direction: row;      
+    align-items: left;      
+    justify-content: left;   
+    border: none;
+    cursor: pointer; 
+    gap: 20px;                
+  }
+
+  .button:hover {
+    background-color: rgba(255, 255, 255, 0.05); /* subtle light overlay */
+    color: blueviolet; /* highlight text on hover */
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .button:hover i {
+    color: blueviolet; /* make the icon color change on hover too */
+  }
+
+  #SideLogout {
+    width: 99.8%;
+    height: 50px;
+    background-color: #111;
+    color: green;
+    border: 1px solid green;
+  }
+
+  #SideLogout:hover {
+    background-color: #000;
+    color: red;
+    border: 2px solid red;
+    cursor: pointer;
+  }
+
+  #c {
+    color: azure;
+  }

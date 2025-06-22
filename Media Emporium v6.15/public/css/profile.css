@@ -1,0 +1,580 @@
+@keyframes whiteGradientFlow {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+body {
+  background: linear-gradient(
+    -45deg,
+    #ffffff 25%,
+    #f0f0f0 50%,
+    #ffffff 75%
+  );
+  background-size: 200% 200%;
+  animation: whiteGradientFlow 3s linear infinite;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  background: linear-gradient(120deg, #ffffff, #e0e0e0, #ffffff);
+  background-size: 400% 400%;
+  animation: whiteGradientFlow 5s linear infinite;
+  opacity: 0.8;
+}
+
+#Stats {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    width: 80%;
+    height: 250px;
+    border-bottom: 1px solid #000;
+}
+
+#pp {
+    position: absolute;
+    top: 5;
+    left: 5;
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    background-color: grey;
+    border-radius: 50%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pp-wrapper {
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  width: 140px; /* outer border size + image size */
+  height: 140px;
+  border-radius: 50%;
+  background: linear-gradient(270deg, #fc72ff, #8f68ff, #487bff, #8f68ff, #fc72ff);
+  background-size: 800% 800%;
+  padding: 5px; /* thickness of the gradient border */
+  animation: gradientMove 4s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 0;
+}
+
+.pp-wrapper:hover {
+  transform: scale(1.1);
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#pp:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: 300ms ease-in-out;
+}
+
+#pp-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    z-index: 10;
+    width: 500px;
+    max-width: 80%;
+    height: 500px;
+    max-height: 80%;
+    object-fit: cover;
+}
+
+#pp-modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+#Modalheader {
+    top: 0;
+    height: 35px;
+    width: 100%;
+    background-color: #000;
+}
+#modalB{
+    position: absolute;
+    width: 100%;
+    height: calc(100% - 35px);
+    left: 0;
+    bottom: 0;
+    background-color: aliceblue;
+}
+
+#ModalImg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    bottom: 0;
+    background-color: aliceblue;
+    object-fit: contain;
+}
+
+#ModalCloseBtn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    color: aliceblue;
+    border: 3px solid #fff;
+    border-radius: 50%;
+}
+
+#ModalCloseBtn:hover {
+    background-color: red;
+    color: aliceblue;
+    cursor: pointer;
+    transition: 200ms ease-in-out;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+#StatBar {
+  display: flex;
+  justify-content: center;
+  gap: 40px; /* Space between stats */
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: Arial, sans-serif;
+}
+
+#StatBar div {
+  text-align: center;
+}
+
+#StatBar h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+#Posts, #Followers, #Following {
+  font-weight: 600; 
+  font-size: 14px;
+  color: #555;
+}
+
+#posts, #followers, #following {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+#username {
+    position: absolute;
+    left: 25px;
+    top: -25px;
+}
+
+#bio {
+    position: absolute;
+    top: 160px;
+    left: 20px;
+}
+
+#edit {
+    position: absolute;
+    top: 110px;
+    left: 360px;
+    width: 150px;
+    height: 30px;
+    background-color: aliceblue;
+    border: 2px solid skyblue;
+    border-radius: 25px;
+}
+
+#upload {
+    position: absolute;
+    top: 110px;
+    left: 520px;
+    width: 150px;
+    height: 30px;
+    background-color: aliceblue;
+    border: 2px solid skyblue;
+    border-radius: 25px;
+}
+
+#edit:hover, #upload:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: 200ms ease-in-out;
+    border: 2px solid blue;
+}
+
+#editMenu {
+    position: fixed;
+    top: 60px;
+    right: -85%; /* Hidden off-screen */
+    width: 77.65%;
+    height: calc(100% - 60px);
+    background-color: aliceblue;
+    color: #000;
+    overflow-x: hidden;
+    transition: right 1s ease;
+    z-index: 1000;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* space between inputs */
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+#uploadMenu {
+    position: fixed;
+    top: 60px;
+    right: -85%; /* Hidden off-screen */
+    width: 77.65%;
+    height: calc(100% - 60px);
+    background-color: grey;
+    color: #000;
+    overflow-x: hidden;
+    transition: right 1s ease;
+    z-index: 1000;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* space between inputs */
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+/* When active, slide in */
+#editMenu.active {
+    right: 0;
+}
+
+#uploadMenu.active {
+    right: 0;
+}
+
+/* Close Button */
+#editClose {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    background: none;
+    color: #000;
+    border: 2px solid #000;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#uploadClose {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 24px;
+    background: none;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#editClose:hover, #uploadClose:hover {
+    border: 2px solid red;
+    color: red;
+}
+
+#custom-button {
+    width: 150px;
+    height: 150px;
+    background-color: aliceblue;
+    border-radius: 50%;
+    display: block;
+    margin: 10px auto; /* centers and gives it spacing */
+    object-fit: cover;  /* keeps the image neat */
+}
+
+.custom-wrapper {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: linear-gradient(270deg, #fc72ff, #8f68ff, #487bff, #8f68ff, #fc72ff);
+  background-size: 800% 800%;
+  padding: 5px;
+  animation: gradientMove 4s linear infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 10px auto;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#custom-button:hover {
+  cursor: pointer;
+}
+
+#custom-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: 300ms ease-in-out;
+}
+
+#usernameUpload, #bioUpload {
+    width: 100%;
+    max-width: 500px;
+    height: 45px;
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+#submit {
+  width: 100% !important;
+  max-width: 500px; /* Or whatever max width you want */
+  height: 45px;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: aliceblue;
+  border: none;
+  margin: 0 auto;
+  display: block;
+}
+
+#submit:hover {
+  background-color: indigo;
+  cursor: pointer;
+}
+
+#loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.spinner {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Example spinner CSS */
+#uploadLoader {
+  position: absolute; /* or relative depending on your layout */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border: 4px solid #ccc;
+  border-top: 4px solid #333;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.gallery {
+  border: 2px solid #ccc;
+  padding: 10px;
+  width: 600px;
+}
+
+#previewContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 15px;
+  margin-left: 40px;
+  margin-bottom: 10px;
+}
+
+.preview-item {
+  position: relative;
+  display: inline-block;
+  margin: 10px;
+}
+
+.preview-item img,
+.preview-item video {
+  max-width: 150px;
+  max-height: 150px;
+  border-radius: 8px;
+  display: block;
+}
+
+.remove-btn {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  z-index: 10;
+}
+
+.preview-img,
+.preview-video {
+  max-width: 120px;
+  max-height: 120px;
+  display: block;
+}
+
+.remove-btn {
+  background-color: #000;
+  border-radius: 50%;
+  border: none;
+  font-size: 20px;
+  color: red;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+#SelectImg {
+  width: 100%;
+  height: 35px;
+  background-color: #111;
+  color: #ffffff;
+}
+
+#caption {
+  width: 620px;
+  height: 35px;
+  background-color: white;
+  color: black;
+  border-radius: 10px;
+  border: none;
+  margin-top: 10px;
+}
+
+#uploadSub {
+  position: absolute;
+  right: 32.5%;
+  width: 350px;
+  height: 35px;
+  background-color: blueviolet;
+  color: #ffffff;
+  border-radius: 20px;
+  margin-top: 55px;
+}
+
+#SelectImg:hover {
+  cursor: pointer;
+  background-color: #000;
+}
+
+#uploadSub:hover {
+  cursor: pointer;
+  background-color: indigo;
+}
+
+#PostOutput {
+  position: absolute;
+  top: 320px;
+  right: 0;
+  width: 80%;
+  height: calc(100% - 321px);
+  border-bottom: 1px solid #000;
+  overflow-y: auto;
+}
+
+#postsContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 10px;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.post {
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.post img,
+.post video {
+  width: 280px;     /* fixed width */
+  height: 180px;    /* fixed height */
+  object-fit: contain; /* show entire media without cropping */
+  background-color: #000; /* optional: black background for letterbox effect */
+  border-radius: 8px;
+}
+
+.delete-btn {
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.delete-btn:hover {
+  background-color: #cc0000;
+}

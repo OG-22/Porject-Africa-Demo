@@ -1,0 +1,45 @@
+#donations {
+    position: absolute;
+    right: 20%;
+    top: 70px;
+    width: 500px;
+    height: calc(100% - 70px);
+    background-color: #fafafa;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+}
+
+.donation-header {
+  margin-bottom: 30px;
+}
+
+.donation-title {
+  font-size: 2rem;
+  color: #5c2e91;
+  margin-bottom: 15px;
+}
+
+.donation-description {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.eft-section {
+  background-color: #f0f8ff;
+  padding: 20px;
+  border-left: 4px solid #5c2e91;
+  border-radius: 12px;
+}
+
+.eft-title {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #5c2e91;
+}
+
+.eft-section h4 {
+  margin: 5px 0;
+  font-weight: 500;
+}
+
